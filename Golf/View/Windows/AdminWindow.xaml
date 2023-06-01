@@ -1,0 +1,48 @@
+﻿<Window x:Class="Golf.View.Windows.AdminWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Golf.View.Windows"
+        mc:Ignorable="d"
+        Title="AdminWindow" MinHeight="600" Height="1280" MinWidth="800" Width="1920" ResizeMode="CanResizeWithGrip">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Images/golf.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="Staff_btn"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Сотрудники"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Staff_btn_Click"/>
+        
+        <Button x:Name="Booking_btn" Grid.Column="1"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Бронирование"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Booking_btn_Click"/>
+
+        <Button x:Name="Avtoriz_btn" Grid.Column="2"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Авторизация"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Avtoriz_btn_Click"/>
+
+        <Frame Grid.Row="1" Grid.ColumnSpan="3" Name="Frame"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,63 @@
+﻿<Window x:Class="Golf.View.Windows.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Golf.View.Windows"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Images/pole.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Margin="15"
+              Background="#FFADD997" Opacity="0.8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Авторизация" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+
+            <TextBox Grid.Row ="1" Name="Login"
+                     Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                  VerticalAlignment="Top"
+                  materialDesign:HintAssist.Hint="Login" CaretBrush="#FF00560D" SelectionBrush="#FF60B564" Background="{x:Null}" FontSize="16">
+            </TextBox>
+
+            
+             <PasswordBox Grid.Row="2" x:Name="Password"
+                          Margin="10 0 10 0"
+                    Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                    VerticalAlignment="Top"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedPasswordBoxEnabledComboBox}"
+                    materialDesign:HintAssist.Hint="Password" CaretBrush="#FF00560D" SelectionBrush="#FF60B564"/>
+
+            <Button x:Name="Avtoriz"
+                  Grid.Row="3"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Авторизоваться"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Avtoriz_Click" />   
+        </Grid>
+    </Grid>
+</Window>

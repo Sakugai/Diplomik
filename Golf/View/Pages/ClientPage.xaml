@@ -1,0 +1,89 @@
+﻿<Page x:Class="Golf.View.Pages.ClientPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Golf.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="ClientPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" Background="#FFADD997" Opacity="0.8">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Данные для заполнения" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBox Grid.Row ="1" Name="Surname_tb"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                  VerticalAlignment="Top"
+                  materialDesign:HintAssist.Hint="Фамилия" CaretBrush="#FF00560D" SelectionBrush="#FF60B564" Background="{x:Null}" FontSize="16">
+            </TextBox>
+
+            <TextBox Grid.Row ="2" Name="Name_tb"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                  VerticalAlignment="Top"
+                  materialDesign:HintAssist.Hint="Имя" CaretBrush="#FF00560D" SelectionBrush="#FF60B564" Background="{x:Null}" FontSize="16">
+            </TextBox>
+
+            <TextBox Grid.Row ="3" Name="MiddleName_tb"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                  VerticalAlignment="Top"
+                  materialDesign:HintAssist.Hint="Отчество" CaretBrush="#FF00560D" SelectionBrush="#FF60B564" Background="{x:Null}" FontSize="16">
+            </TextBox>
+
+            <ComboBox Name="Membership_cb"
+                  Grid.Row ="4"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                  materialDesign:HintAssist.Hint="Членство">
+            </ComboBox>
+
+            <Button x:Name="Insert_btn"
+                  Grid.Row="5"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Добавить"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Insert_btn_Click" />
+
+            <Button x:Name="Update_btn"
+                  Grid.Row="6"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Изменить"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Update_btn_Click" />
+
+            <Button x:Name="Delete_btn"
+                  Grid.Row="7"
+                  Margin="10 0 10 0"
+                  Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                  ToolTip="MaterialDesignFlatMidButton"
+                  Content="Удалить"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" BorderBrush="#FF00560D" Background="#FF60B564" Opacity="1" Click="Delete_btn_Click" />
+
+
+        </Grid>
+
+        <DataGrid x:Name="Grid" />
+    </Grid>
+</Page>
